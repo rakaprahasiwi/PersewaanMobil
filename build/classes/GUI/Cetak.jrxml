@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="26d8f821-bbb4-450f-b74e-da9e98b9fa38">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Ctk" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOM" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     sewa_mobil.`no_sewa` AS sewa_mobil_no_sewa,
+     sewa_mobil.`no_ktp` AS sewa_mobil_no_ktp,
+     sewa_mobil.`tgl_sewa` AS sewa_mobil_tgl_sewa,
+     sewa_mobil.`no_polisi` AS sewa_mobil_no_polisi,
+     sewa_mobil.`jml_hari` AS sewa_mobil_jml_hari,
+     sewa_mobil.`total` AS sewa_mobil_total
+FROM
+     `sewa_mobil` sewa_mobil
+WHERE no_sewa LIKE '$P!{Ctk}']]>
+	</queryString>
+	<field name="sewa_mobil_no_sewa" class="java.lang.String"/>
+	<field name="sewa_mobil_no_ktp" class="java.lang.String"/>
+	<field name="sewa_mobil_tgl_sewa" class="java.lang.String"/>
+	<field name="sewa_mobil_no_polisi" class="java.lang.String"/>
+	<field name="sewa_mobil_jml_hari" class="java.lang.Integer"/>
+	<field name="sewa_mobil_total" class="java.lang.Double"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sewa_mobil_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="553" height="20" uuid="6c6abe73-9d6f-431e-a8d7-8bec9c35d309"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERSEWAAN MOBIL SADEWO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="20" width="553" height="20" uuid="141e7044-81b6-4113-8937-160a80d6c192"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Semarang, INDONESIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="40" width="553" height="20" uuid="cfefec41-b290-410a-8f7e-2e30249b7696"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[email : SadewoRentCar@gmail.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="0" width="113" height="60" uuid="28e58ea6-4818-4063-a3ca-3adc3209dacd"/>
+				<imageExpression><![CDATA["E:\\Persewaan\\src\\GUI\\LOGO_1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="-13" width="552" height="1" uuid="408d105b-1103-4447-a22e-6112a79e98e0"/>
+			</line>
+			<line>
+				<reportElement x="2" y="-10" width="552" height="1" uuid="cfada10f-13cf-452d-a8cb-f5e5f17fb9d8"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="454" y="0" width="100" height="20" uuid="377ab9c4-f090-4c29-ae7d-24fdff6a666d"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="0" width="55" height="20" uuid="d20a52a9-4ac7-4968-9f7c-73cf3fce8a19"/>
+				<text><![CDATA[Semarang,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="15" width="100" height="20" uuid="66d2ffb9-8441-4050-8e09-152f8152da00"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="40" width="51" height="20" uuid="2b1a0620-c3ee-4432-85b0-dc1cb3bcd94e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="52" y="40" width="88" height="20" uuid="4fb73b4f-ae2b-4b90-9b33-402e7c6f3a0d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="140" y="40" width="112" height="20" uuid="28627267-cafc-4a87-b711-0e65b76b3b3e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="252" y="40" width="100" height="20" uuid="6d979e3e-51b0-4f2c-9f9c-dfec6b41ef31"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="352" y="40" width="44" height="20" uuid="6834784b-0c39-4bbe-bced-d8bcd85e643d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="454" y="40" width="100" height="20" uuid="0cd87e8d-bec7-4304-ba58-8d512f6e5f78"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="52" y="40" width="88" height="20" uuid="5f64ba64-17c1-4791-a207-8a93fdc8ceeb"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. KTP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="40" width="112" height="20" uuid="94093845-ce5a-4213-b590-55c5b022cd71"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tgl. Sewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="40" width="100" height="20" uuid="3c57a204-3d7e-4a81-955e-1e49bb9520cc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. Polisi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="40" width="44" height="20" uuid="12190d84-d0c0-4f58-9fc5-35db6144ad51"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jml Hari]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="40" width="100" height="20" uuid="67a2b20b-801f-4a15-bacf-445579cf0274"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="40" width="51" height="20" uuid="8291de06-129b-48c1-84d6-2e2fb3cc3509"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. Sewa]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="2" width="51" height="20" uuid="4bd85611-bee9-4b17-b0cf-18ceb45c1d14"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="2" width="52" height="20" uuid="afbfb653-03ac-4ddb-a9fe-b45e328eecab"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sewa_mobil_no_sewa}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="52" y="2" width="88" height="20" uuid="35895b11-9d46-4a7c-bb84-e0bd75fd7843"/>
+			</rectangle>
+			<textField>
+				<reportElement x="52" y="2" width="88" height="20" uuid="afc02c66-6d3c-4c5a-8c05-700be8c8c511"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sewa_mobil_no_ktp}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="140" y="2" width="112" height="20" uuid="9cf6048b-fb1d-41ef-99cc-ab90d2ddd0a9"/>
+			</rectangle>
+			<textField>
+				<reportElement x="140" y="2" width="112" height="20" uuid="6da0ed2c-78c8-4343-82c2-7dc25551123e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sewa_mobil_tgl_sewa}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="252" y="2" width="100" height="20" uuid="5596db43-40d1-470d-884d-db39ab02f1df"/>
+			</rectangle>
+			<textField>
+				<reportElement x="252" y="2" width="100" height="20" uuid="0e6069cd-1189-4915-a10c-6e2fa64ca0ce"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sewa_mobil_no_polisi}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="352" y="2" width="44" height="20" uuid="556bfbb7-5770-4962-9e09-2a050d8ae804"/>
+			</rectangle>
+			<textField>
+				<reportElement x="352" y="2" width="44" height="20" uuid="383d3ac4-4c6a-4297-831d-138e5789b9c4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sewa_mobil_jml_hari}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="454" y="2" width="100" height="20" uuid="3a3abc55-00fe-4b28-b133-ffc562288b56"/>
+			</rectangle>
+			<textField>
+				<reportElement x="454" y="2" width="100" height="20" uuid="2b345725-e503-4e19-bd9f-f0c3ee1545e4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sewa_mobil_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="5" width="100" height="20" uuid="4716a8a9-bfb9-4ca2-b962-eb694e3d3114"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="450" y="13" width="100" height="20" uuid="c6a2e248-a349-4a14-8be7-ffd01e0cba4a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="5" width="100" height="20" uuid="14ae4627-2113-44f4-8a6f-284e55489189"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="450" y="13" width="100" height="20" uuid="9990778d-761c-46c4-a0b1-39b26d43b6dd"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="450" y="0" width="61" height="20" uuid="848e249f-a235-488e-a825-50b8f103271b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="511" y="0" width="40" height="20" uuid="d0d024e5-8b01-4ae1-962a-cd24383c2d6c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="80" splitType="Stretch"/>
+	</summary>
+</jasperReport>
